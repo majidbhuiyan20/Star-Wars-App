@@ -10,6 +10,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Getting screen width using MediaQuery for responsiveness
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: CustomColor.backgroundColor, // Set background color
 
@@ -20,7 +23,7 @@ class HomePage extends StatelessWidget {
           style: TextStyle(
             color: CustomColor.appBarTextColor,
             fontWeight: FontWeight.w800,
-            fontSize: 22,
+            fontSize: screenWidth > 600 ? 24 : 22,  // Adjust title font size based on screen width
           ),
         ),
         centerTitle: true,
@@ -31,7 +34,7 @@ class HomePage extends StatelessWidget {
         children: [
           // Search Bar
           Padding(
-            padding: EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(screenWidth > 600 ? 16.0 : 12.0), // Adjust padding based on screen width
             child: TextField(
               controller: searchController,
               onChanged: (value) => viewModel.searchCharacters(value),
@@ -56,7 +59,7 @@ class HomePage extends StatelessWidget {
               }
               return ListView.builder(
                 itemCount: viewModel.filteredCharacters.length + 1,
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth > 600 ? 20 : 10, vertical: 5),
                 itemBuilder: (context, index) {
                   if (index == viewModel.filteredCharacters.length) {
                     return Center(
@@ -69,7 +72,7 @@ class HomePage extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            padding: EdgeInsets.symmetric(horizontal: screenWidth > 600 ? 30 : 20, vertical: 12),
                           ),
                           child: Text("Load More", style: TextStyle(color: Colors.white, fontSize: 16)),
                         ),
@@ -89,11 +92,15 @@ class HomePage extends StatelessWidget {
                       ),
                       title: Text(
                         character.name,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: CustomColor.textColor),
+                        style: TextStyle(
+                          fontSize: screenWidth > 600 ? 20 : 18, // Adjust title font size based on screen width
+                          fontWeight: FontWeight.bold,
+                          color: CustomColor.textColor,
+                        ),
                       ),
                       subtitle: Text(
                         "Height: ${character.height} | Gender: ${character.gender}",
-                        style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                        style: TextStyle(fontSize: screenWidth > 600 ? 16 : 14, color: Colors.grey[700]),
                       ),
                       trailing: Icon(Icons.arrow_forward_ios, color: CustomColor.iconColor),
                       onTap: () => Get.to(() => CharacterDetailsScreen(character: character)),
