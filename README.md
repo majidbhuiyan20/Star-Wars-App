@@ -12,9 +12,9 @@ This Flutter app provides detailed information about various characters, includi
 
 ## Screenshots
 
-![Screenshot 1](assets/screenshot3.png)
-![Screenshot 2](images/screenshot2.png)
-[Screenshot 2](images/screenshot3.png)
+![Screenshot 1](lib/assets/screenshot1.png)
+![Screenshot 2](lib/assets/screenshot2.png)
+![Screenshot 2](lib/assets/screenshot3.png)
 
 ## Technologies Used
 
