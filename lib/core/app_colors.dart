@@ -33,7 +33,7 @@ class CustomColor {
   static const Color textColor = Color(0xFF1D3557);
   static const Color backgroundColor = Color(0xFFf5f5f5); // Light Gray Background// White
   static const Color iconColor = Color(0xFF457B9D); // Blue Shade
-  static const Color buttonColor = Color(0xFFE63946); // Red Accent
+  static const Color buttonColor = Color(0xFF8B008B) ;// Red Accent
   static const Color cardColor = Color(0xFFFFFFFF); // White for Cards
 
 }
