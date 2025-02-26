@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:star_wars/core/app_colors.dart';
 import '../view_models/character_view_model.dart';
+
 import 'character_details_page.dart';
+
 
 class HomePage extends StatelessWidget {
   final CharacterViewModel viewModel = Get.put(CharacterViewModel());
@@ -14,9 +16,50 @@ class HomePage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: CustomColor.appBarColor,
+              ),
+
+              child: Text(
+                'Star Wars App',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home, color: CustomColor.iconColor),
+              title: Text('Home', style: TextStyle(color: CustomColor.textColor)),
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.info, color: CustomColor.iconColor),
+              title: Text('About', style: TextStyle(color: CustomColor.textColor)),
+              onTap: () {
+                Navigator.pop(context);
+               // Get.to(() => AboutPage());
+              },
+            ), ListTile(
+              leading: Icon(Icons.settings, color: CustomColor.iconColor),
+              title: Text('Settings', style: TextStyle(color: CustomColor.textColor)),
+              onTap: () => { Navigator.pop(context), //Get.to(() => SettingsPage())
+               },
+            ),
+          ],
+        ),
+      ),
       backgroundColor: CustomColor.backgroundColor, // Set background color
 
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: CustomColor.appBarColor,
         title: Text(
           "Star Wars Characters",
@@ -26,9 +69,10 @@ class HomePage extends StatelessWidget {
             fontSize: screenWidth > 600 ? 24 : 22,  // Adjust title font size based on screen width
           ),
         ),
-        centerTitle: true,
+        centerTitle: true, // Make sure to keep centerTitle: true,
         elevation: 5,
       ),
+
 
       body: Column(
         children: [
