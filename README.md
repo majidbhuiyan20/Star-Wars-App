@@ -14,7 +14,7 @@ This Flutter app provides detailed information about various characters, includi
 
 ![Screenshot 1](lib/assets/screenshot1.png)
 ![Screenshot 2](lib/assets/screenshot2.png)
-![Screenshot 2](lib/assets/screenshot3.png)
+![Screenshot 3](lib/assets/screenshot3.png)
 
 ## Technologies Used
 
