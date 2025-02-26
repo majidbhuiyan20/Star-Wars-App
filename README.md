@@ -1,3 +1,5 @@
+# Character Details App
+
 This Flutter app provides detailed information about various characters, including their basic details, homeworld, and films they appeared in. It fetches data from an external API, and presents it in a clean, responsive layout. The app utilizes the **GetX** package for state management and **Obx** for real-time updates.
 
 ## Features
@@ -10,19 +12,9 @@ This Flutter app provides detailed information about various characters, includi
 
 ## Screenshots
 
-### Mobile Version
-
-![Screenshot 1](lib/assets/screenshot1.png)
-![Screenshot 2](lib/assets/screenshot2.png)
-![Screenshot 3](lib/assets/screenshot3.png)
-### Web Version
-
-
-
-To display images with a specific size, you can use HTML tags to control the width and height in your markdown like this:
-
-```html
-<img src="lib/assets/screenshot1.png" width="300" height="500"/>
+![Screenshot 1](lib/assets/schreenshot1.png)
+![Screenshot 2](lib/assets/schreenshot2.png)
+![Screenshot 3](lib/assets/schreenshot3.png)
 
 ## Technologies Used
 
