@@ -34,14 +34,27 @@ class CharacterViewModel extends GetxController {
     fetchCharacters();
   }
 
-  void searchCharacters(String query) {
+  // Search characters across all available characters in the API
+  void searchCharacters(String query) async {
     searchQuery.value = query;
     if (query.isEmpty) {
       filteredCharacters.assignAll(characters);
     } else {
-      filteredCharacters.assignAll(
-        characters.where((char) => char.name.toLowerCase().contains(query.toLowerCase())).toList(),
-      );
+      isLoading.value = true;
+      try {
+        // Reset the filtered characters list
+        filteredCharacters.clear();
+
+        // Fetch characters from API based on the query
+        var searchResults = await _apiService.searchCharacters(query);
+
+        // Update filtered list with search results
+        filteredCharacters.assignAll(searchResults);
+      } catch (e) {
+        print("Search Error: $e");
+      } finally {
+        isLoading.value = false;
+      }
     }
   }
 }

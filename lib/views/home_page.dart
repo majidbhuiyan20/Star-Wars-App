@@ -7,8 +7,6 @@ class HomePage extends StatelessWidget {
   final CharacterViewModel viewModel = Get.put(CharacterViewModel());
   final TextEditingController searchController = TextEditingController();
 
-  HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +46,7 @@ class HomePage extends StatelessWidget {
                   return ListTile(
                     title: Text(character.name),
                     subtitle: Text("Height: ${character.height} | Gender: ${character.gender}"),
-                    onTap: () => Get.to(() => CharacterDetailsPage(character: character)),
+                    onTap: () => Get.to(() => CharacterDetailsScreen(character: character)),
                   );
                 },
               );
