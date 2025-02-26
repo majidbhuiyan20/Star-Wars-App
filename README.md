@@ -12,7 +12,23 @@ This Flutter app provides detailed information about various characters, includi
 
 ## Screenshots
 
+- **API Fetching, Pagination, and Search Functionality**
+- **1. API Fetching**
+     - The app uses the Dio package to fetch data from the Star Wars API (https://swapi.dev/api/people/).
+     - It retrieves a list of characters from the API and displays them in a list format.
+     - The data contains details like the character's name, height, gender, and homeworld.
+- **2. Pagination**
+     - The API returns the data in pages (e.g., 10 characters per page).
+     - Initially, the first page of characters is fetched when the app loads.
+     - When the user scrolls to the bottom of the list, the "Load More" button triggers the app to fetch the next page of characters from the API.
+     - The app automatically appends the new characters to the existing list.
+- **3. Search Functionality**
+     - The search bar allows users to search for characters by name.
+     - When the user types, the app sends a request to the API with the search query (e.g., search="Luke").
+     - The API returns characters that match the search query, and the app updates the list of characters based on the search result.
+     - Note: The entire list of characters is fetched and stored in memory, not just what is shown in the UI. This allows for fast filtering and searching through the full dataset.
 <img src="lib/assets/schreenshot1.png" width="300" height="533" />
+
 <img src="lib/assets/schreenshot2.png" width="300" height="533" />
 <img src="lib/assets/schreenshot3.png" width="300" height="533" />
 
